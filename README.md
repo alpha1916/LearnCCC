@@ -1,2 +1,2 @@
-popstar
+Learn Cocos Creator
 =======
