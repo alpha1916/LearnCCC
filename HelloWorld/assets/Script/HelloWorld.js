@@ -49,6 +49,44 @@ cc.Class({
         //     }
         // }, 3000);
         this.playLoading();
+        this.loadRes();
+    },
+
+    loadRes:function()
+    {
+        cc.loader.loadRes("ModalUI", function(err, prefab){
+            if(err != null)
+            {
+                console.log(err);
+                return;
+            }
+            // prefab.parent = this.node;
+            // var dlg = cc.instantiate(prefab);
+            // this.node.addChild(dlg, 9999);
+            // dlg.x = 0;
+            // dlg.y = 0;
+            // if(prefab == cc.loader.getRes("ModalUI"))
+            //     console.log("load prefab success!");
+            // var dlg = cc.instantiate(prefab);
+            // dlg.parent = cc.director.getScene();
+            // dlg.parent = null;
+            // this.dlg = dlg;
+            // // dlg.show("测试模态对话框");
+            // jx.alert("测试模态对话框");
+            // jx.initAlert();
+        }.bind(this));
+    },
+
+    showModalUI:function()
+    {
+        // this.dlg.show("测试模态对话框");
+        jx.alert("scene 1");
+        // cc.director.loadScene("scene2");
+    },
+
+    gotoScene2:function()
+    {
+        cc.director.loadScene("scene2");
     },
 
     playLoading:function()
