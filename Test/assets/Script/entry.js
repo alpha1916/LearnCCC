@@ -57,7 +57,6 @@ cc.Class({
 
     updateProgress:function(percent)
     {
-        console.log("progress:" + percent);
         this.progressBar.progress = percent;
 
         this.imgMoveItem.x = this.itemOX + this.itemDistance * percent;
@@ -67,6 +66,7 @@ cc.Class({
     onCompleted:function()
     {
         // cc.director.loadScene("MainScene");
+
         setTimeout(function(){
             cc.director.loadScene("FishScene");
         }, 300);

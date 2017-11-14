@@ -1,0 +1,41 @@
+package fishdata;
+
+//鱼游动节点数据
+message RouteNode {
+    required sfixed32 rotSpeed = 1;
+    required fixed32 speed = 2;
+    required float duration = 3;
+}
+
+//鱼初始及游动数据
+message FishingData {
+    required fixed32 level = 1;
+    required float rot = 2;
+    required float x = 3;
+    required float y = 4;
+    required fixed32 dice = 5;
+    required float duration = 6;
+    required fixed32 offset = 7;
+    repeated RouteNode route = 8;
+}
+
+//鱼列表数据
+message FishesData {
+    repeated FishingData fishes = 1;
+}
+
+//一批次一批次的鱼列表
+message FishBatches {
+    repeated FishesData fishesBatch = 1;
+}
+
+//鱼阵数据
+message FishArray {
+    //毫秒级持续时间
+    required fixed32 duration = 1;
+    repeated FishingData fishes = 2;
+}
+
+message FishArrays {
+    repeated FishArray fishArrays = 2;
+}

@@ -62,6 +62,10 @@ var atlas = [
     "water/water"
 ];
 
+var protos = [
+    "proto/fish_data"
+];
+
 var resArray = [];
 imgs.forEach(function(path){
     resArray.push([path, cc.SpriteFrame]);
@@ -73,4 +77,8 @@ prefabs.forEach(function(path){
 
 atlas.forEach(function(path){
     resArray.push([path, cc.SpriteAtlas]);
+});
+
+protos.forEach(function(path){
+    resArray.push([path, cc.TextAsset]);
 });

@@ -39,7 +39,24 @@ cc.Class({
         fish.parent = this.fishLayer;
         fish.x = 200;
         fish.y = 200;
+
+        this.testProtoBuf();
+    },
+
+    testProtoBuf:function()
+    {
+        // var pb = require("protobuf"); j
+        var Helper = require("protobufHelper");
+        var pbHelper = new Helper();
+        var strProto = cc.loader.getRes("proto/fish_data", cc.TextAsset);
+        pbHelper.init(strProto, "fishdata");
+        // var buffer = pbhelper.encodeObject("UserInfo", {id : 1001,name : "ihowe"});
+        // console.log("encode",buffer); // 然后Buffer 可以用socket或者http发送给服务器
+        // 把buffer还原成js对象
+        // var message = pbhelper.decodeBuffer("UserInfo", buffer);
+        // console.log("decode",message);
     }
+
 
     // called every frame, uncomment this function to activate update callback
     // update: function (dt) {
