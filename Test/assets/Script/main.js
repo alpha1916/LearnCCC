@@ -27,7 +27,7 @@ cc.Class({
     showModalUI:function()
     {
         console.log("showModalUI");
-        jx.alert("我自横刀向天笑，去留肝胆两昆仑");
+        jx.alert("我自横刀向天笑，去留肝胆两昆仑 ");
     }
     // called every frame, uncomment this function to activate update callback
     // update: function (dt) {

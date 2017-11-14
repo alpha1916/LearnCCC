@@ -8,7 +8,7 @@
   "design-resolution-width": 1440,
   "excluded-modules": [],
   "fit-height": true,
-  "fit-width": false,
+  "fit-width": true,
   "group-list": [
     "default"
   ],
@@ -17,7 +17,7 @@
     "height": 640,
     "width": 960
   },
-  "start-scene": "current",
+  "start-scene": "c2100981-ca15-4a15-8ca9-c16459a18586",
   "use-customize-simulator": false,
   "use-project-simulator-setting": false
 }

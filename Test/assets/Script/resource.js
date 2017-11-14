@@ -3,7 +3,27 @@ var ResManager = cc.Class({
     {
         this.progressListener = progressListener;
         this.completedListener = completedListener;
-        cc.loader.loadResArray(resArray, this.onProgress.bind(this), this.onCompleted.bind(this));
+        // cc.loader.loadResArray(resArray, this.onProgress.bind(this), this.onCompleted.bind(this));
+        var loadedCount = 0;
+        var totalCount = resArray.length;
+        resArray.forEach(function(data){
+            var path = data[0];
+            var type = data[1];
+            cc.loader.loadRes(path, type, function(err, asset){
+                if(err != null)
+                {
+                    console.log("load asset error:" + path);
+                }
+                ++loadedCount;
+                var percent = loadedCount / totalCount;
+                this.progressListener(percent);
+
+                if(loadedCount === totalCount)
+                {
+                    this.completedListener();
+                }
+            }.bind(this));
+        }.bind(this));
     },
 
     onProgress:function(completedCount, totalCount, item)
@@ -34,7 +54,7 @@ var prefabs = [
     "ModalUI",
 ];
 
-var altas = [
+var atlas = [
     "fish/fish_01_18_swim",
     "fish/fish_19_22_swim",
     "fish/fish_23_24_swim",
@@ -43,4 +63,14 @@ var altas = [
 ];
 
 var resArray = [];
-resArray = prefabs.concat(altas);
+imgs.forEach(function(path){
+    resArray.push([path, cc.SpriteFrame]);
+});
+
+prefabs.forEach(function(path){
+    resArray.push([path, cc.Prefab]);
+});
+
+atlas.forEach(function(path){
+    resArray.push([path, cc.SpriteAtlas]);
+});

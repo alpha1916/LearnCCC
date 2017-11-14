@@ -1,3 +1,5 @@
+import { setTimeout } from "timers";
+
 var resMgr = require("resource");
 cc.Class({
     extends: cc.Component,
@@ -64,7 +66,10 @@ cc.Class({
 
     onCompleted:function()
     {
-        cc.director.loadScene("MainScene");
+        // cc.director.loadScene("MainScene");
+        setTimeout(function(){
+            cc.director.loadScene("FishScene");
+        }, 300);
     }
 
     // called every frame, uncomment this function to activate update callback
